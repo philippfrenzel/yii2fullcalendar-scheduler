@@ -73,7 +73,12 @@ class CoreAsset extends AssetBundle
         $language = $this->language ? $this->language : Yii::$app->language;
         if ($language != 'en-us') 
         {
-            $this->js[] = "fullcalendar/dist/locale/{$language}.js";
+            if (file_exists(Yii::getAlias($this->sourcePath."/"."fullcalendar/dist/locale/{$language}.js"))) {
+                $this->js[] = "fullcalendar/dist/locale/{$language}.js";
+            } else {
+                // try shorter version of locale
+                $this->js[] = "fullcalendar/dist/locale/".substr($language, 0, 2).".js";
+            }
         }
 
         if($this->googleCalendar)
