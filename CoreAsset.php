@@ -51,7 +51,7 @@ class CoreAsset extends AssetBundle
      */
     public $js = [
         'fullcalendar/dist/fullcalendar.js',        
-        'fullcalendar/dist/lang-all.js',
+        'fullcalendar/dist/locale-all.js',
         'fullcalendar-scheduler/dist/scheduler.js',
     ];
     
@@ -73,7 +73,7 @@ class CoreAsset extends AssetBundle
         $language = $this->language ? $this->language : Yii::$app->language;
         if ($language != 'en-us') 
         {
-            $this->js[] = "fullcalendar/dist/lang/{$language}.js";
+            $this->js[] = "fullcalendar/dist/locale/{$language}.js";
         }
 
         if($this->googleCalendar)
