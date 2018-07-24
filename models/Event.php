@@ -18,6 +18,13 @@ class Event extends Model
    */
   public $id;
 
+
+    /**
+     * the id of the resource
+     * @var integer
+     */
+    public $resourceId;
+
   /**
    * The text on an event's element
    * @var string
@@ -111,7 +118,7 @@ class Event extends Model
   public function rules()
   {
     return [
-      ['id', 'integer'],
+      ['id, resourceId', 'integer'],
       ['title, allDay, start, end, url, className, source, color, backgroundColor, borderColor, textColor', 'safe'],
       ['editable, startEditable, durationEditable', 'boolean'],
     ];
