@@ -106,6 +106,19 @@ class yii2fullcalendarscheduler extends elWidget
     public $eventAfterAllRender = "";
 
     /**
+     * A js callback that triggered when the user clicks an day.
+     * @var string the javascript code that implements the dayClick function
+     */
+    public $dayClick = "";
+
+
+    /**
+     * A js callback will be useful for monitoring when selections are made and cleared
+     * @var string the javascript code that implements the dayClick function
+     */
+    public $select = "";
+
+    /**
      * Initializes the widget.
      * If you override this method, make sure you call the parent implementation first.
      */
@@ -220,6 +233,12 @@ class yii2fullcalendarscheduler extends elWidget
         }
         if ($this->eventAfterAllRender){
             $options['eventAfterAllRender'] = new JsExpression($this->eventAfterAllRender);
+        }
+        if ($this->dayClick){
+            $options['dayClick'] = new JsExpression($this->dayClick);
+        }
+        if ($this->select){
+            $options['select'] = new JsExpression($this->select);
         }
         $options = array_merge($options, $this->clientOptions);
         return Json::encode($options);
