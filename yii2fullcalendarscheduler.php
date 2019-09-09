@@ -93,6 +93,9 @@ class yii2fullcalendarscheduler extends elWidget
      */
     public $eventRender = "";
 
+
+    public $eventClick = "";
+
     /**
      * The javascript function to us as en eventAfterRender callback
      * @var string the javascript code that implements the eventAfterRender function
@@ -227,6 +230,9 @@ class yii2fullcalendarscheduler extends elWidget
         }");
         if ($this->eventRender){
             $options['eventRender'] = new JsExpression($this->eventRender);
+        }
+        if ($this->eventClick){
+            $options['eventClick'] = new JsExpression($this->eventClick);
         }
         if ($this->eventAfterRender){
             $options['eventAfterRender'] = new JsExpression($this->eventAfterRender);
